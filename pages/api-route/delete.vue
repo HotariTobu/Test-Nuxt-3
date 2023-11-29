@@ -1,12 +1,14 @@
 <script setup lang="ts">
-const response = useFetch('/api/task')
+import Task from './task';
+
+const response = useFetch<Task[]>('/api/task')
 const { data: tasks } = response
 const { refresh } = response
 
 const deleteTask = async (id: number) => {
     const response = await useFetch('/api/task', {
         method: 'delete',
-        body: id,
+        body: id.toString(),
     })
     const { data } = response
 

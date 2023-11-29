@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const response = await useLazyAsyncData<[Post]>('key-posts', () => {
+const response = await useLazyAsyncData<Post[]>('key-posts', () => {
     // Additional process
     console.log('fetch')
 
-    return $fetch('https://jsonplaceholder.typicode.com/posts/')
+    return $fetch<Post[]>('https://jsonplaceholder.typicode.com/posts/')
 })
 
 console.log(response)

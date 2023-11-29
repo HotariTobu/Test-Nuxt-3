@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { data: tasks } = useFetch('/api/task')
+import Task from './task';
+
+const { data: tasks } = useFetch<Task[]>('/api/task')
 console.log(tasks)
 </script>
 

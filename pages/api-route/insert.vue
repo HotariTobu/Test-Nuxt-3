@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import Task from './task';
+
 const task = ref('')
-const response = useFetch('/api/task')
+const response = useFetch<Task[]>('/api/task')
 
 const { data: tasks } = response
 const { refresh } = response
